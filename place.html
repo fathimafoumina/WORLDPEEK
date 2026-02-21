@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Famous Place</title>
+
+<style>
+body{
+font-family:Segoe UI;
+background:url("scr.png") center/cover no-repeat fixed;
+color:white;
+padding:30px;
+}
+.container{
+background:rgba(0,0,0,0.6);
+-webkit-backdrop-filter:blur(15px);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+img{
+width:100%;
+max-width:500px;
+border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1 id="title"></h1>
+<img id="image" alt="Famous Place Image">
+<p id="desc"></p>
+<button onclick="history.back()">Back</button>
+</div>
+
+<script>
+const country=new URLSearchParams(window.location.search).get("country");
+
+document.getElementById("title").textContent=
+"Famous Place of "+country;
+
+const img=document.getElementById("image");
+img.src=`https://source.unsplash.com/800x500/?${country},landmark`;
+img.alt="Famous landmark in "+country;
+
+document.getElementById("desc").textContent=
+country+" has many beautiful landmarks representing its history and culture.";
+</script>
+
+</body>
+</html>
